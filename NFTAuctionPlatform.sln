@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFTAuctionPlatform.API", "NFTAuctionPlatform.API\NFTAuctionPlatform.API.csproj", "{87FD1BE0-C888-4626-A27C-A0721B01817E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFTAuctionPlatform.Repository", "NFTAuctionPlatform.Repository\NFTAuctionPlatform.Repository.csproj", "{B8562363-9B18-4292-88DD-11EEE6EE0864}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFTAuctionPlatform.Services", "NFTAuctionPlatform.Services\NFTAuctionPlatform.Services.csproj", "{4E43E6F1-F51C-42AC-AE43-7D44BFA5E9A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87FD1BE0-C888-4626-A27C-A0721B01817E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87FD1BE0-C888-4626-A27C-A0721B01817E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87FD1BE0-C888-4626-A27C-A0721B01817E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87FD1BE0-C888-4626-A27C-A0721B01817E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8562363-9B18-4292-88DD-11EEE6EE0864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8562363-9B18-4292-88DD-11EEE6EE0864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8562363-9B18-4292-88DD-11EEE6EE0864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8562363-9B18-4292-88DD-11EEE6EE0864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E43E6F1-F51C-42AC-AE43-7D44BFA5E9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E43E6F1-F51C-42AC-AE43-7D44BFA5E9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E43E6F1-F51C-42AC-AE43-7D44BFA5E9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E43E6F1-F51C-42AC-AE43-7D44BFA5E9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {755AA152-A803-426F-BEE2-6D49EFF6269E}
+	EndGlobalSection
+EndGlobal
