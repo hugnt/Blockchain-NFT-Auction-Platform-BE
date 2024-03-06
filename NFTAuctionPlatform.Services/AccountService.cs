@@ -18,20 +18,20 @@ namespace NFTAuctionPlatform.Services
         {
             _accountRepository = accountRepository;
         }
-        public ResponseModel CreateAccount(Account accountCreate)
-        {
-            var Roles = _accountRepository.GetAll()
-                            .Where(l =>
-                                    l.WalletAddress.Trim().ToLower() == accountCreate.WalletAddress.Trim().ToLower())
-                            .FirstOrDefault();
-            if (Roles != null)
-            {
-                return new ResponseModel(422, "Role already exists");
-            }
+       
 
-            if (!_accountRepository.Create(accountCreate))
+        public ResponseModel CreateAccount(string walletAddress)
+        {
+            if (_accountRepository.IsExists(walletAddress)) return  new ResponseModel(422, "Account was already exist");
+
+            var newAccount = new Account();
+            newAccount.WalletAddress = walletAddress;
+            newAccount.Name = walletAddress;
+            newAccount.Avatar = "user.png";
+            newAccount.Cover = "cover_default.png";
+            if (!_accountRepository.Create(newAccount))
             {
-                return new ResponseModel(500, "Something went wrong while saving");
+                return new ResponseModel(500, "Something went wrong while creating account");
             }
 
             return new ResponseModel(201, "Successfully created");

@@ -15,6 +15,23 @@ namespace NFTAuctionPlatform.API.Controllers
             _accountService = accountService;
         }
 
+        [HttpPost("Login")]
+        [ProducesResponseType(200, Type = typeof(Account))]
+        [ProducesResponseType(400)]
+        public IActionResult Login([FromBody] string walletAddress)
+        {
+            var account = _accountService.GetAccount(walletAddress);
+            if (!ModelState.IsValid) return BadRequest();
+            if (account == null)
+            {
+                _accountService.CreateAccount(walletAddress);
+                if (!ModelState.IsValid) return BadRequest();
+            }
+            account = _accountService.GetAccount(walletAddress);
+
+            return Ok(account);
+        }
+
         [HttpPost("Verify")]
         [ProducesResponseType(200, Type = typeof(Account))]
         [ProducesResponseType(400)]
@@ -56,26 +73,6 @@ namespace NFTAuctionPlatform.API.Controllers
             return Ok(account);
         }
 
-        [HttpPost]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(400)]
-        public IActionResult CreateAccount([FromBody] Account accountCreate)
-        {
-            if (accountCreate == null) return BadRequest(ModelState);
-
-            var res = _accountService.CreateAccount(accountCreate);
-
-            if (res.Status != 201)
-            {
-                ModelState.AddModelError("", res.StatusMessage);
-                return StatusCode(res.Status, ModelState);
-            }
-
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
-            return StatusCode(res.Status, res.StatusMessage);
-        }
-
         [HttpDelete("{accountId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
@@ -93,10 +90,6 @@ namespace NFTAuctionPlatform.API.Controllers
 
             return NoContent();
         }
-
-
-
-
 
     }
 }

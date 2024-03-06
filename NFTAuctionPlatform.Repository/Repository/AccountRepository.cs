@@ -17,18 +17,18 @@ namespace NFTAuctionPlatform.Repository.Repository
         {
             _dbContext = dbContext;
         }
-        public bool IsExists(string WalletAddress)
+        public bool IsExists(string walletAddress)
         {
-            var user = _dbContext.Accounts.SingleOrDefault(a =>
-                a.WalletAddress == WalletAddress
+            var user = _dbContext.Accounts.Any(a =>
+                a.WalletAddress == walletAddress
             );
-            return user != null;
+            return user;
         }
 
-        public Account GetAccount(string WalletAddress)
+        public Account GetAccount(string walletAddress)
         {
             return _dbContext.Accounts.SingleOrDefault(a =>
-                a.WalletAddress == WalletAddress
+                a.WalletAddress ==walletAddress
             );
         }
     }
